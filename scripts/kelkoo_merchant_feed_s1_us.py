@@ -10,6 +10,12 @@ import requests
 KELKOO_TOKEN_1 = os.getenv("KELKOO_TOKEN_1", "")
 KELKOO_MERCHANT_FEED_URL = "api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants"
 
+# Fail fast with a clear message
+REQUIRED_ENVS = ["KELKOO_TOKEN_1"]
+missing = [k for k in REQUIRED_ENVS if not os.getenv(k)]
+if missing:
+    raise RuntimeError(f"Missing required envs: {', '.join(missing)}")
+
 # Adjust these to the EXACT param keys from your Merchant Feeds docs:
 PARAM_SPOTLIGHT_KEY = "spotlight"         # e.g., "spotlight" or "onlySpotlight"
 PARAM_MATCH_KEY = "merchantMatch"         # e.g., "merchantMatch" or "matchedOnly"
