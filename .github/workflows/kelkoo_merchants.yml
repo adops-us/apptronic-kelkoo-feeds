@@ -36,10 +36,10 @@ jobs:
       #    It expects secrets + optional params via environment variables.
       - name: Fetch & publish merchants
         env:
-          KELKOO_JWT: ${{ secrets.KELKOO_JWT }}
-          KELKOO_MERCHANT_FEED_URL: ${{ secrets.KELKOO_MERCHANT_FEED_URL }}
+          KELKOO_JWT: ${{ secrets.KELKOO_TOKEN_1 }}
+          KELKOO_MERCHANT_FEED_URL: ${{ secrets.api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants }}
         run: |
-          python scripts/kelkoo_merchant_feed.py
+          python scripts/kelkoo_merchant_feed_s1_us.py
 
       # 5) Commit changes to docs/ so GitHub Pages updates automatically
       - name: Commit & push updated feeds
