@@ -8,7 +8,7 @@ import requests
 
 # ===== Env / constants =====
 KELKOO_TOKEN_1 = os.getenv("KELKOO_TOKEN_1", "")
-KELKOO_MERCHANT_FEED_URL = os.getenv("api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants", "")
+KELKOO_MERCHANT_FEED_URL = "api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants"
 
 # Adjust these to the EXACT param keys from your Merchant Feeds docs:
 PARAM_SPOTLIGHT_KEY = "spotlight"         # e.g., "spotlight" or "onlySpotlight"
@@ -35,7 +35,7 @@ def ts() -> str:
 
 def fetch_from_kelkoo() -> List[Dict[str, Any]]:
     if not KELKOO_TOKEN_1:
-        raise RuntimeError("KELKOO_TOEKN_1 is not set")
+        raise RuntimeError("KELKOO_TOKEN_1 is not set")
     if not KELKOO_MERCHANT_FEED_URL:
         raise RuntimeError("KELKOO_MERCHANT_FEED_URL is not set")
 
