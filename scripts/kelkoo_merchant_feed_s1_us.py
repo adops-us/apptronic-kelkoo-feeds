@@ -8,7 +8,7 @@ import requests
 
 # ===== Env / constants =====
 KELKOO_TOKEN_1 = os.getenv("KELKOO_TOKEN_1", "")
-KELKOO_MERCHANT_FEED_URL = "api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants"
+KELKOO_MERCHANT_FEED_URL = os.getenv("KELKOO_MERCHANT_FEED_URL", "")
 
 # Fail fast with a clear message
 REQUIRED_ENVS = ["KELKOO_TOKEN_1"]
