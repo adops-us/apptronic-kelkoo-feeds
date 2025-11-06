@@ -7,7 +7,7 @@ from typing import Any, Dict, List
 import requests
 
 # ===== Env / constants =====
-KELKOO_JWT = os.getenv("KELKOO_TOKEN_1", "")
+KELKOO_TOKEN_1 = os.getenv("KELKOO_TOKEN_1", "")
 KELKOO_MERCHANT_FEED_URL = os.getenv("api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants", "")
 
 # Adjust these to the EXACT param keys from your Merchant Feeds docs:
@@ -34,12 +34,12 @@ def ts() -> str:
     return now_utc().strftime("%Y%m%d-%H%M%S")
 
 def fetch_from_kelkoo() -> List[Dict[str, Any]]:
-    if not KELKOO_JWT:
-        raise RuntimeError("KELKOO_JWT is not set")
+    if not KELKOO_TOKEN_1:
+        raise RuntimeError("KELKOO_TOEKN_1 is not set")
     if not KELKOO_MERCHANT_FEED_URL:
         raise RuntimeError("KELKOO_MERCHANT_FEED_URL is not set")
 
-    headers = {"Authorization": f"Bearer {KELKOO_JWT}"}
+    headers = {"Authorization": f"Bearer {KELKOO_TOKEN_1}"}
 
     # Build params exactly as your Merchant Feed doc specifies.
     params = {}
