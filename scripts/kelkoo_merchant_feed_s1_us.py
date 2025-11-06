@@ -22,8 +22,8 @@ PARAM_MATCH_KEY = "merchantMatch"         # e.g., "merchantMatch" or "matchedOnl
 PARAM_COUNTRY_KEY = "country"             # if country scoping is needed
 
 DEFAULT_COUNTRY = "us"                    # change if needed
-ENABLE_SPOTLIGHT_ONLY = False             # set True to pull only Spotlight merchants
-ENABLE_MATCH_ONLY = True                  # set True to pull only “matched” merchants
+ENABLE_SPOTLIGHT_ONLY = "no"             # set True to pull only Spotlight merchants
+ENABLE_MATCH_ONLY = "yes"                  # set True to pull only “matched” merchants
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
