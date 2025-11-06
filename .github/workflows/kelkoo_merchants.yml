@@ -37,16 +37,7 @@ jobs:
       - name: Fetch & publish merchants
         env:
           KELKOO_TOKEN_1: ${{ secrets.KELKOO_TOKEN_1 }}
-          KELKOO_MERCHANT_FEED_URL: "https://api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants"
-        run: |
-          echo "Has KELKOO_TOKEN_1? $([ -n \"$KELKOO_TOKEN_1\" ] && echo yes || echo no)"
-
-          # 4) Run the Kelkoo merchant fetcher script
-      #    It expects secrets + optional params via environment variables.
-      - name: Fetch & publish merchants
-        env:
-          KELKOO_TOKEN_1: ${{ secrets.KELKOO_TOKEN_1 }}
-          KELKOO_MERCHANT_FEED_URL: "https://api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants"
+          KELKOO_MERCHANT_FEED_URL: ${{ secrets.KELKOO_MERCHANT_FEED_URL }}
         run: |
           python scripts/kelkoo_merchant_feed_s1_us.py
 
