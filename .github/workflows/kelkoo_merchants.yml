@@ -37,7 +37,7 @@ jobs:
       - name: Fetch & publish merchants
         env:
           KELKOO_JWT: ${{ secrets.KELKOO_TOKEN_1 }}
-          KELKOO_MERCHANT_FEED_URL: ${{ secrets.api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants }}
+          KELKOO_MERCHANT_FEED_URL: ${{ api.kelkoogroup.net/publisher/shopping/v2/feeds/merchants }}
         run: |
           python scripts/kelkoo_merchant_feed_s1_us.py
 
