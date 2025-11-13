@@ -51,6 +51,16 @@ jobs:
           find docs -maxdepth 1 -type f -printf "%TY-%Tm-%Td %TH:%TM:%TS %p\n" | sort -r | head -n 30 || true
           echo "--- git status (before add)"
           git status --porcelain
+
+      - name: Prune old XML/JSON (keep only *_latest)
+        run: |
+          set -euo pipefail
+          # Delete timestamped merchants_* while keeping merchants_latest.*
+          find docs -maxdepth 1 -type f \( -name "merchants_*.xml" -o -name "merchants_*.json" \) \
+            ! -name "merchants_latest.xml" \
+            ! -name "merchants_latest.json" \
+            -delete
+
       
       # 6) Commit & push updated feeds (robust)
       - name: Commit & push updated feeds
