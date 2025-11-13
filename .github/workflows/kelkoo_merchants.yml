@@ -3,7 +3,7 @@ name: Kelkoo Merchant Feed → Pages
 on:
   # Runs every hour at minute 0 (GitHub Actions uses UTC)
   schedule:
-    - cron: "0 * * * *"
+    # - cron: "0 * * * *"
   # Allows you to run it on demand from the Actions tab
   workflow_dispatch:
 
